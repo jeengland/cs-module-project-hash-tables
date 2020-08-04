@@ -21,7 +21,8 @@ class HashTable:
     """
 
     def __init__(self, capacity):
-        # Your code here
+        self.capacity = capacity
+        self.hashmap = [[]for _ in range(0, self.capacity)]
 
 
     def get_num_slots(self):
@@ -34,7 +35,7 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+        return len(self.hashmap)
 
 
     def get_load_factor(self):
@@ -43,7 +44,11 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+        keys = 0
+        for i in self.hashmap:
+            if i != []:
+                keys +=1
+        return keys / self.get_num_slots()
 
 
     def fnv1(self, key):
