@@ -22,7 +22,7 @@ class HashTable:
 
     def __init__(self, capacity):
         self.capacity = capacity
-        self.hashmap = [None]*self.capacity
+        self.hashmap = [None] * self.capacity
         self.size = 0
 
     def get_num_slots(self):
@@ -40,7 +40,7 @@ class HashTable:
         Return the load factor for this hash table.
         Implement this.
         """
-        return self.size/self.get_num_slots()
+        return self.size / self.get_num_slots()
 
     def djb2(self, key):
         """
@@ -49,7 +49,7 @@ class HashTable:
         """
         hash = 2317
         for x in key:
-            hash = ((hash << 5)+hash)+ord(x)
+            hash = ((hash << 5) + hash) + ord(x)
         return hash & 0xFFFFFFFF
 
     def hash_index(self, key):
@@ -63,7 +63,7 @@ class HashTable:
         """
         Store the value with the given key.
         Hash collisions should be handled with Linked List Chaining.
-        Implement this.
+        Implement this. 
         """
         hash_key = self.hash_index(key)
         slot = self.hashmap[hash_key]
@@ -127,7 +127,7 @@ class HashTable:
         # Your code here
         if self.get_load_factor() > 0.7:
             old_hashmap = self.hashmap
-            self.hashmap = [None]*new_capacity
+            self.hashmap = [None] * new_capacity
             for node in old_hashmap:
                 while node.next:
                     self.put(node.key, node.value)
