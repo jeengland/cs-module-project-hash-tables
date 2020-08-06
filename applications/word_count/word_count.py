@@ -1,6 +1,15 @@
-def word_count(s):
-    # Your code here
+import re
 
+
+def word_count(s):
+    dictionary = {}
+    s = re.sub(r"[^\w\d'\s]", '', s)
+    for word in s.lower().split():
+        if word not in dictionary.keys():
+            dictionary[word] = 1
+        else:
+            dictionary[word] += 1
+    return dictionary
 
 
 if __name__ == "__main__":
