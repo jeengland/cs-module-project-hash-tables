@@ -1,6 +1,12 @@
 def no_dups(s):
-    # Your code here
-
+    words = {}
+    output = []
+    s = s.split()
+    for word in s:
+        if word not in words.keys():
+            output.append(word)
+            words[word] = 1
+    return ' '.join(output)
 
 
 if __name__ == "__main__":
